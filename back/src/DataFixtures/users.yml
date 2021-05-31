@@ -1,0 +1,11 @@
+App\Entity\User:
+    user_1:
+        email: 'maximelechere.dev@gmail.com'
+        #password: admin
+        password: '\$2y\$13\$8utzQUFS6irlQfQTKvkfauvndapSliaTR3lbAUZzo3YVEjcNSS6.u'
+        username: 'maxlech974'
+    user_{2..5}:
+        email: '<email()>'
+        #password: user
+        password: '\$2y\$13\$dzodCMqug8v5u6eZ.LU0fOKksVjOuBUBYgbXfB/ukX3TCZEYPAHm6'
+        username: '<firstNameFemale()>'

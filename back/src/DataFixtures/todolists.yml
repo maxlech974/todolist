@@ -1,0 +1,9 @@
+App\Entity\TodoList:
+    todoList_{1..10}:
+        name: '<word()>'
+        createdAt: '<dateTime()>'
+        user: '@user_1'
+    todoList_{2..10}:
+        name: '<word()>'
+        createdAt: '<dateTime()>'
+        user: '@user_*'
