@@ -6,12 +6,22 @@ use ApiPlatform\Core\Annotation\ApiResource;
 use App\Repository\TodoListRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Symfony\Component\Serializer\Annotation\Groups;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass=TodoListRepository::class)
  */
-#[ApiResource()]
+#[ApiResource(
+    collectionOperations: [
+        'get' => ['normalization_context' => ['groups' => ['list']],
+        'post'
+        ],
+    ],
+    itemOperations: [
+        'get' => ['normalization_context' => ['groups' => ['todo:read']]]
+    ]
+)]
 class TodoList
 {
     /**
@@ -19,32 +29,38 @@ class TodoList
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
+    #[Groups(['list', 'todo:read'])]
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
+    #[Groups(['list', 'todo:read'])]
     private $name;
 
     /**
      * @ORM\Column(type="datetime")
      */
+    #[Groups(['list'])]
     private $createdAt;
 
     /**
      * @ORM\Column(type="datetime", nullable=true)
      */
+    #[Groups(['list'])]
     private $updatedAt;
 
     /**
      * @ORM\OneToMany(targetEntity=Task::class, mappedBy="todoList", orphanRemoval=true)
      */
+    #[Groups(['todo:read'])]
     private $tasks;
 
     /**
      * @ORM\ManyToOne(targetEntity=User::class, inversedBy="todoLists")
      * @ORM\JoinColumn(nullable=false)
      */
+    #[Groups(['list'])]
     private $user;
 
     public function __construct()
