@@ -12,6 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity(repositoryClass=TodoListRepository::class)
  */
+//dans les context de normalization, je veux pouvoir avoir accès à toutes mes tâches en optimisant ma requête.
 #[ApiResource(
     collectionOperations: [
         'get' => ['normalization_context' => ['groups' => ['list']],
@@ -19,7 +20,9 @@ use Doctrine\ORM\Mapping as ORM;
         ],
     ],
     itemOperations: [
-        'get' => ['normalization_context' => ['groups' => ['todo:read']]]
+        'get' => ['normalization_context' => ['groups' => ['todo:read']]],
+        'put',
+        'delete'
     ]
 )]
 class TodoList
@@ -43,12 +46,6 @@ class TodoList
      */
     #[Groups(['list'])]
     private $createdAt;
-
-    /**
-     * @ORM\Column(type="datetime", nullable=true)
-     */
-    #[Groups(['list'])]
-    private $updatedAt;
 
     /**
      * @ORM\OneToMany(targetEntity=Task::class, mappedBy="todoList", orphanRemoval=true)
@@ -93,18 +90,6 @@ class TodoList
     public function setCreatedAt(\DateTimeInterface $createdAt): self
     {
         $this->createdAt = $createdAt;
-
-        return $this;
-    }
-
-    public function getUpdatedAt(): ?\DateTimeInterface
-    {
-        return $this->updatedAt;
-    }
-
-    public function setUpdatedAt(?\DateTimeInterface $updatedAt): self
-    {
-        $this->updatedAt = $updatedAt;
 
         return $this;
     }

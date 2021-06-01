@@ -10,7 +10,16 @@ use Symfony\Component\Serializer\Annotation\Groups;
 /**
  * @ORM\Entity(repositoryClass=TaskRepository::class)
  */
-#[ApiResource()]
+#[ApiResource(
+    collectionOperations: [
+        'post'
+    ],
+    itemOperations: [
+        'delete' => ['security' => 'previous_object == user'],
+        'put',
+        'get'
+    ]
+)]
 class Task
 {
     /**
@@ -28,7 +37,7 @@ class Task
     private $name;
 
     /**
-     * @ORM\Column(type="boolean")
+     * @ORM\Column(type="boolean", options={"default": 0})
      */
     #[Groups(['todo:read'])]
     private $isFinished;
@@ -40,16 +49,15 @@ class Task
     private $createdAt;
 
     /**
-     * @ORM\Column(type="datetime", nullable=true)
-     */
-    #[Groups(['todo:read'])]
-    private $updatedAt;
-
-    /**
      * @ORM\ManyToOne(targetEntity=TodoList::class, inversedBy="tasks")
      * @ORM\JoinColumn(nullable=false)
      */
     private $todoList;
+
+    public function __construct()
+    {
+        $this->createdAt = new \DateTime();
+    }
 
     public function getId(): ?int
     {

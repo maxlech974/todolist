@@ -15,10 +15,8 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
  */
-#[ApiResource(
-    
-),
-UniqueEntity(
+//vérification que les champs email et username soient bien unique pour la creation de l'utilisateur.
+#[UniqueEntity(
     fields: ['email', 'username']
 )]
 class User implements UserInterface, PasswordAuthenticatedUserInterface
