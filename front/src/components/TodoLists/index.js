@@ -1,23 +1,38 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 import { Card, Button } from 'react-bootstrap';
 import './todolists.scss';
 
-const TodoLists = () => {
+const TodoLists = ({ getTodoLists, todoLists }) => {
+
+  useEffect(() => {
+    getTodoLists();
+  }, []);
   
-  
+  console.log(todoLists);
   return(
     <div className="todo-lists-container">
-      <Card className="todolist-card">
-        <Card.Header as="h5">Featured</Card.Header>
-        <Card.Body>
-          <Card.Title>Special title treatment</Card.Title>
-          <Card.Text>
-            With supporting text below as a natural lead-in to additional content.
-          </Card.Text>
-          <Button variant="primary">Go somewhere</Button>
-        </Card.Body>
-      </Card>
+      {todoLists.map((todoList) => (
+        <Card className="todolist-card mb-3">
+          <Card.Body className="justify-content-md-center">
+            <Card.Title>{todoList.name}</Card.Title>
+            <Button className="modify">Modifier</Button>
+            <Button variant="danger">Supprimer</Button>
+          </Card.Body>
+          <Card.Footer>
+            <Card.Text>
+              auteur : <em>{todoList.user.username}</em>
+              {/* crée le: <em>{
+                new Intl.DateTimeFormat("fr-FR", {
+                  day: "2-digit",
+                  month: "long",
+                  year: 'numeric'
+                }).format('2021-06-02')
+              }</em> */}
+            </Card.Text>
+          </Card.Footer>
+        </Card>
+      ))}
     </div>
   )
 }

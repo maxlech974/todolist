@@ -3,7 +3,7 @@ import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
 import TodoListPost from 'src/components/Posts/TodoList';
-import TodoLists from 'src/components/TodoLists';
+import TodoLists from 'src/containers/TodoLists';
 
 
 const Main = () => (
