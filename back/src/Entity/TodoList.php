@@ -22,7 +22,7 @@ use Doctrine\ORM\Mapping as ORM;
     itemOperations: [
         'get' => ['normalization_context' => ['groups' => ['todo:read']]],
         'put',
-        'delete'
+        'delete' => ['security' => 'object.user == user']
     ]
 )]
 class TodoList
