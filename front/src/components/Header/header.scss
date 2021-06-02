@@ -1,0 +1,8 @@
+@import 'src/styles/vars.scss';
+
+.header {
+  text-align: center;
+  background-color: $mainBackgroundColor;
+  padding: 2*$gutter;
+  border-bottom: 2px solid grey;
+} 

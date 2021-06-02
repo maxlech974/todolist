@@ -1,0 +1,9 @@
+@import 'src/styles/vars.scss';
+
+.todo-lists-container {
+  width: 1200px;
+  margin: 2*$gutter auto;
+  .todolist-card {
+    width: calc(50% - 2rem);
+  }
+}

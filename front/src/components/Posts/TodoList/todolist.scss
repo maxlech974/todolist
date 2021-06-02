@@ -1,0 +1,18 @@
+@import 'src/styles/vars.scss';
+
+.create-todo-list {
+  padding: $gutter;
+
+  .navbar {
+    :nth-child(n) {
+      margin-right: $gutter;
+    }
+    .submit-button{
+      border-radius: 0px;
+      background-color: $mainButtonColor;
+      border: none;
+    }
+  }
+  border-bottom: lightgrey solid 1px;
+
+}
