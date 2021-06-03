@@ -7,10 +7,11 @@ const InputField = ({
   onChange,
   label
 }) => {
+
   const handleChange = (evt) => {
     onChange(evt.target.value, name);
   }
-  console.log(value); 
+   
   return(
     <FormControl 
       placeholder={placeholder}

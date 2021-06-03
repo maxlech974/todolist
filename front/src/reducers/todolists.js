@@ -16,7 +16,6 @@ const todoLists = (state = initialeState, action ={}) => {
         todoLists: action.todoLists
       };
     case CREATE_TODO_LIST:
-      console.log('reducer', action.value)
       return {
         ...state,
         todoList: {

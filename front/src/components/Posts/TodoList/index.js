@@ -4,7 +4,11 @@ import { Navbar, Form, InputGroup, Button} from 'react-bootstrap';
 import InputField from 'src/components/Fields/input';
 import './todolist.scss';
 
-const TodoList = ({name, username, changeField}) => {
+const TodoList = ({
+  name,
+  username,
+  changeField
+}) => {
   
   return (
     <div className="create-todo-list">
