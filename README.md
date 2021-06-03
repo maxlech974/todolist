@@ -67,3 +67,9 @@ yarn start
 ## Difficultés rencontrées
 
 Problème lors se l'authentification en JWT, token bien reçu mais problème lors du renvoie du Token dans le Header.
+
+
+## Realisation Notable
+
+- Front
+  - Le composeant Input : que je peux utiliser sur tous les champs input en leur donnant un nom et une valeur je peux le réutiliser et donc factoriser mon code le plus possible
