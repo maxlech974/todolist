@@ -11,8 +11,22 @@
     margin-right: $gutter;
     width: calc(50% - 4rem);
 
-    .modify {
-      margin-right: $gutter;
+    .title {
+      text-align: center;
+      margin-bottom: $gutter;
+    }
+
+    .edition{
+
+      display: flex;
+      justify-content: center;
+      .modify, .access {
+        margin-right: $gutter;
+      }
+      .access {
+        background-color: $mainButtonColor;
+        border-color: $mainButtonColor;
+      }
     }
   }
 }

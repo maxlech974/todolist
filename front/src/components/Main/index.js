@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Switch, Route } from 'react-router-dom';
 
-import TodoListPost from 'src/components/Posts/TodoList';
+import TodoListPost from 'src/containers/PostTodo';
 import TodoLists from 'src/containers/TodoLists';
 
 

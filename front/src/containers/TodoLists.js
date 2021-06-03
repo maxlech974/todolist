@@ -5,16 +5,14 @@ import TodoLists from 'src/components/TodoLists';
 import { fetchTodoLists } from 'src/actions/todolist'
 
 
-
-// === mapStateToProps
 const mapStateToProps = (state) => ({
   todoLists: state.todolists.todoLists,
+  isLoading: state.loader.isLoading,
 });
 
 const mapDispatchToProps = (dispatch) => ({
   getTodoLists: () => {
     dispatch(fetchTodoLists());
-    console.log(fetchTodoLists);
   },
 });
 

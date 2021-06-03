@@ -2,16 +2,22 @@ import axios from 'axios'
 
 
 import { FETCH_TODO_LISTS, saveTodoLists } from 'src/actions/todolist'
+import { loading } from 'src/actions/loader';
 
+import { apiTodo } from 'src/api'
 
 const todoLists = (store) => (next) => (action) => {
   switch (action.type) {
     case FETCH_TODO_LISTS:
-      console.log('dans le middleware');
-      axios.get('http://localhost:8080/api/todo_lists')
+      store.dispatch(loading(true));
+      axios.get(apiTodo)
         .then((response) => {
           console.log(response.data);
-          store.dispatch(saveTodoLists(response.data['hydra:member']));
+          store.dispatch(loading(false));
+          store.dispatch(
+            saveTodoLists(response.data['hydra:member'])
+            );
+          
         })
         .catch((error) => {
           console.log(error);

@@ -1,28 +1,32 @@
 import React from 'react';
 
-import { Navbar, Form, InputGroup, FormControl, Button} from 'react-bootstrap';
+import { Navbar, Form, InputGroup, Button} from 'react-bootstrap';
+import InputField from 'src/components/Fields/input';
 import './todolist.scss';
 
-const TodoList = () => {
+const TodoList = ({name, username, changeField}) => {
+  
   return (
     <div className="create-todo-list">
       <Navbar className="justify-content-center navbar">
         <Form inline>
           <InputGroup>
-            <FormControl
-              placeholder="Username"
-              aria-label="Username"
-              aria-describedby="basic-addon1"
-              required
+            <InputField
+              label="Username"
+              name='username'
+              placeholder="Username" 
+              value={username}
+              onChange={changeField}
             />
           </InputGroup>
         </Form>
         <Form inline>
-          <FormControl 
-            type="text" 
-            placeholder="Nom de la TodoList" 
-            className=" mr-sm-2" 
-            required
+          <InputField
+              label="Nom de la TodoList"
+              name='name'
+              placeholder="Nom de la TodoList" 
+              value={name}
+              onChange={changeField}
             />
         </Form>
           <Button type="submit" className="submit-button">Créer</Button>

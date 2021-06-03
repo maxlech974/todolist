@@ -1,6 +1,10 @@
-import { SAVE_TODO_LISTS } from 'src/actions/todolist';
+import { SAVE_TODO_LISTS, CREATE_TODO_LIST } from 'src/actions/todolist';
 
 const initialeState = {
+  todoList: {
+    name: '',
+    username:'',
+  },
   todoLists: [],
 };
 
@@ -11,6 +15,15 @@ const todoLists = (state = initialeState, action ={}) => {
         ...state,
         todoLists: action.todoLists
       };
+    case CREATE_TODO_LIST:
+      console.log('reducer', action.value)
+      return {
+        ...state,
+        todoList: {
+          ...state.todoList,
+          [action.name]: action.value
+        }
+      }
     default: return {...state};
   }
 };
