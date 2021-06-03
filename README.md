@@ -39,7 +39,20 @@ Un projet TodoList pour montrer les compétences acquises que ça soit côté Ba
 ## Lancement du projet
 
 Pour démarrer le projet, se placer dans le dossier Back.
-Effectuer la commande:
+Effectuer les commandes:
+
+```bash
+//configurer environnment local
+bin/console d:d:c
+```
+
+```bash
+bin/console d:m:m
+```
+
+```bash
+bin.console d:f:l
+```
 
 ```bash
 php -S 0.0.0.0:8080 -t public
