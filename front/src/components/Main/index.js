@@ -6,7 +6,7 @@ import TodoListPost from 'src/containers/PostTodo';
 import TodoLists from 'src/containers/TodoLists';
 import Tasks from 'src/containers/Tasks';
 import NoMatch from 'src/components/NoMatch'
-import TaskPost from 'src/components/Posts/Task';
+import TaskPost from 'src/containers/PostTask';
 
 
 const Main = () => (

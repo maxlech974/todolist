@@ -4,6 +4,9 @@
   margin-top: 2*$gutter;
   .task {
     margin-bottom: $gutter;
+    .task-tittle{
+      margin-left: $gutter!important;
+    }
     &__done {
       margin-bottom: $gutter;
       .task-body {

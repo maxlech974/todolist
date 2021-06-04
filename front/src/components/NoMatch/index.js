@@ -13,7 +13,7 @@ const NoMatch = () => {
           La page que vous avez demandé n'est pas accessible.
         </p>
         <p>
-          <Link to="/">
+          <Link to='/'>
             <Button variant="primary">Retour Accueil</Button>
           </Link>
         </p>

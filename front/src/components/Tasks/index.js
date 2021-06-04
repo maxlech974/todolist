@@ -1,12 +1,14 @@
 import React, { useEffect } from 'react'
-import { Card, Container } from 'react-bootstrap'
+import { Card, Container, InputGroup, FormControl } from 'react-bootstrap'
 import { useParams } from 'react-router'
 import { getDate } from 'src/utils/date'
 
 
+
 import './task.scss'
 
-const Tasks = ({ tasksList, getTasks }) => {
+
+const Tasks = ({ tasksList, getTasks, finish }) => {
   const { id } = useParams();
   useEffect(() => {
     getTasks(id);
@@ -20,25 +22,33 @@ const Tasks = ({ tasksList, getTasks }) => {
     }
     return 0;
   }
+
   const tasksByDate = tasksList.sort(compare);
   const taskActive = [];
   const tasksDone = [];
-  console.log(tasksDone.length)
+
   tasksByDate.forEach( e => {
     (e.isFinished) ? tasksDone.push(e) : taskActive.push(e)
   })
 
-  console.log('tâches en cours', taskActive)
-  console.log('tâches terminées', tasksDone);
+  const handleCheck = (evt) => {
+    console.log(evt.target.id);
+    if(evt.target.checked === true){
+      finish(evt.target.id);
+    }
+  }
   
   return(
     <Container className="task-container">
       {taskActive.map((task)=>(
         <Card className="task" key={task.id}>
           <Card.Body>
-            <Card.Text className="task-tittle">
-              {task.name}
-            </Card.Text>
+            <InputGroup>
+              <InputGroup.Checkbox aria-label="done" onChange={handleCheck} id={task.id} />
+              <Card.Text className="task-tittle">
+                {task.name}
+              </Card.Text>
+            </InputGroup>
           </Card.Body>
           <Card.Footer>{getDate(task.createdAt)}</Card.Footer>
         </Card>
