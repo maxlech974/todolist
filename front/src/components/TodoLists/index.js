@@ -8,7 +8,7 @@ import { getDate } from 'src/utils/date';
 
 import './todolists.scss';
 
-const TodoLists = ({ getTodoLists, getTodoListId, todoLists, isLoading, idTodo, onDelete }) => {
+const TodoLists = ({ getTodoLists, getTodoListId, todoLists, isLoading, onDelete }) => {
 
   useEffect(() => {
     getTodoLists();
