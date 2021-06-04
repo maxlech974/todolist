@@ -1,19 +1,21 @@
 import React from 'react'
 
 import { Jumbotron, Button, Container } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 
 const NoMatch = () => {
 
   return(
     <Container>
-      <Jumbotron>
-        <h1>Hello, world!</h1>
+      <Jumbotron className="justify-content-center">
+        <h1>404, Page non trouvée</h1>
         <p>
-          This is a simple hero unit, a simple jumbotron-style component for calling
-          extra attention to featured content or information.
+          La page que vous avez demandé n'est pas accessible.
         </p>
         <p>
-          <Button variant="primary">Learn more</Button>
+          <Link to="/">
+            <Button variant="primary">Retour Accueil</Button>
+          </Link>
         </p>
       </Jumbotron>
     </Container>

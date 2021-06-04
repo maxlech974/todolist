@@ -3,7 +3,9 @@ import React from 'react'
 const Tasks = () => {
 
   return(
-    console.log('todo')
+    <div>
+      hello world
+    </div>
   )
 }
 

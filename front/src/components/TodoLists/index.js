@@ -7,33 +7,27 @@ import PropTypes from 'prop-types';
 
 import './todolists.scss';
 
-const TodoLists = ({ getTodoLists, todoLists, isLoading }) => {
+const TodoLists = ({ getTodoLists, getTodoListId, todoLists, isLoading, idTodo, onDelete }) => {
 
   useEffect(() => {
     getTodoLists();
   }, []);
-  
-  const handleOpen = () => {
 
-  }
-  const handleDelete = () => {
-
-  }
-
+  console.log('id',idTodo);
 
   return(
     <div className="todo-lists-container">
       {isLoading && <Spinner />}
-      {todoLists.map((todoList) => (
+      {!isLoading && (todoLists.map((todoList) => (
         <Card className="todolist-card mb-3" key={todoList.id}>
           <Card.Body className="justify-content-md-center">
             <Card.Title className="title">{todoList.name}</Card.Title>
             <div className="edition">
               <Link to={`/todo_list/${todoList.id}`}>
-                <Button className="access" onClick={handleOpen}>Ouvrir</Button>
+                <Button className="access" onClick={() => {getTodoListId(todoList.id)}}>Ouvrir</Button>
               </Link>
               <Button className="modify">Modifier</Button>
-              <Button variant="danger">Supprimer</Button>
+              <Button variant="danger" onClick={() => { onDelete(todoList.id) }}>Supprimer</Button>
             </div>
           </Card.Body>
           <Card.Footer>
@@ -41,7 +35,7 @@ const TodoLists = ({ getTodoLists, todoLists, isLoading }) => {
               <div>auteur : <em>{todoList.user.username}</em></div>
               <div>
                 crée le :
-                <em> 
+                <em>
                   {
                     new Intl.DateTimeFormat("fr-FR", {
                       day: "2-digit",
@@ -54,7 +48,7 @@ const TodoLists = ({ getTodoLists, todoLists, isLoading }) => {
             </Card.Text>
           </Card.Footer>
         </Card>
-      ))}
+      )))}
     </div>
   )
 }

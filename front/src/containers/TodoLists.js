@@ -2,7 +2,8 @@ import { connect } from 'react-redux';
 
 import TodoLists from 'src/components/TodoLists';
 
-import { fetchTodoLists, fetchTodoListId } from 'src/actions/todolist'
+import { deleteTodolist, fetchTodoLists } from 'src/actions/todolist'
+import { fetchTasks } from 'src/actions/task'
 
 
 const mapStateToProps = (state) => ({
@@ -14,8 +15,11 @@ const mapDispatchToProps = (dispatch) => ({
   getTodoLists: () => {
     dispatch(fetchTodoLists());
   },
-  getTodoListId: () => {
-    dispatch (fetchTodoListId())
+  getTodoListId: (id) => {
+    dispatch(fetchTasks(id));
+  },
+  onDelete: (id) => {
+    dispatch(deleteTodolist(id));
   }
 });
 

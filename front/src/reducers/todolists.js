@@ -1,4 +1,4 @@
-import { SAVE_TODO_LISTS, CREATE_TODO_LIST } from 'src/actions/todolist';
+import { SAVE_TODO_LISTS, CREATE_TODO_LIST, RESET_TODOLIST} from 'src/actions/todolist';
 
 const initialeState = {
   todoList: {
@@ -22,6 +22,10 @@ const todoLists = (state = initialeState, action ={}) => {
           ...state.todoList,
           [action.name]: action.value
         }
+      }
+    case RESET_TODOLIST:
+      return {
+        initialeState,
       }
     default: return {...state};
   }
