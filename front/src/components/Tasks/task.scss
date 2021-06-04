@@ -4,5 +4,19 @@
   margin-top: 2*$gutter;
   .task {
     margin-bottom: $gutter;
+    &__done {
+      margin-bottom: $gutter;
+      .task-body {
+        background-color: darkgray;
+      }
+      .task-tittle {
+        text-decoration: line-through;
+      }
+      .task-footer {
+        background-color: grey;
+        text-decoration: line-through;
+      }
+
+    }
   }
 }
