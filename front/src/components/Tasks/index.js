@@ -1,10 +1,16 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Card, Container } from 'react-bootstrap'
+import { useParams } from 'react-router'
 import { getDate } from 'src/utils/date'
+
 
 import './task.scss'
 
-const Tasks = ({ tasksList }) => {
+const Tasks = ({ tasksList, getTasks }) => {
+  const { id } = useParams();
+  useEffect(() => {
+    getTasks(id);
+  }, [])
   const compare = (a, b) => {
     if ( a.createdAt < b.createdAt ){
       return -1;

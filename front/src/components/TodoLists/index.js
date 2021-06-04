@@ -23,7 +23,7 @@ const TodoLists = ({ getTodoLists, getTodoListId, todoLists, isLoading, onDelete
             <Card.Title className="title">{todoList.name}</Card.Title>
             <div className="edition">
               <Link to={`/todo_list/${todoList.id}`}>
-                <Button className="access" onClick={() => {getTodoListId(todoList.id)}}>Ouvrir</Button>
+                <Button className="access">Ouvrir</Button>
               </Link>
               <Button className="modify">Modifier</Button>
               <Button variant="danger" onClick={() => { onDelete(todoList.id) }}>Supprimer</Button>
