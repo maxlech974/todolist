@@ -7,7 +7,7 @@ import {
 } from 'react-bootstrap';
 
 import InputField from 'src/components/Fields/input';
-import './todolist.scss';
+import 'src/components/Posts/post.scss';
 
 const TodoList = ({
   name,
@@ -16,7 +16,7 @@ const TodoList = ({
 }) => {
   
   return (
-    <div className="create-todo-list">
+    <div className="create">
       <Navbar className="justify-content-center navbar">
         <Form inline>
           <InputField

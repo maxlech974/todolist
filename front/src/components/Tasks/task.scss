@@ -1,32 +1,8 @@
 @import 'src/styles/vars.scss';
 
-.todo-lists-container {
-
-  width: 1200px;
-  margin: 2*$gutter auto;
-  display: flex;
-  flex-wrap: wrap;
-
-  .todolist-card {  
-    margin-right: $gutter;
-    width: calc(50% - 4rem);
-
-    .title {
-      text-align: center;
-      margin-bottom: $gutter;
-    }
-
-    .edition{
-
-      display: flex;
-      justify-content: center;
-      .modify, .access {
-        margin-right: $gutter;
-      }
-      .access {
-        background-color: $mainButtonColor;
-        border-color: $mainButtonColor;
-      }
-    }
+.task-container {
+  margin-top: 2*$gutter;
+  .task {
+    margin-bottom: $gutter;
   }
 }

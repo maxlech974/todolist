@@ -2,7 +2,9 @@ import React from 'react';
 
 import { Navbar, Form, InputGroup, Button} from 'react-bootstrap';
 import InputField from 'src/components/Fields/input';
-import './task.scss';
+
+
+import 'src/components/Posts/post.scss';
 
 const Task = ({
   name,
@@ -11,7 +13,7 @@ const Task = ({
 }) => {
   
   return (
-    <div className="create-task">
+    <div className="create">
       <Navbar className="justify-content-center navbar">
         <Form inline>
           <InputGroup>

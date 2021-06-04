@@ -3,6 +3,7 @@ import Spinner from 'src/components/Loaders/spinner'
 import { Link } from 'react-router-dom';
 import { Card, Button } from 'react-bootstrap';
 import PropTypes from 'prop-types';
+import { getDate } from 'src/utils/date';
 
 
 import './todolists.scss';
@@ -34,13 +35,7 @@ const TodoLists = ({ getTodoLists, getTodoListId, todoLists, isLoading, idTodo, 
               <div>
                 crée le :
                 <em>
-                  {
-                    new Intl.DateTimeFormat("fr-FR", {
-                      day: "2-digit",
-                      month: "long",
-                      year: 'numeric'
-                    }).format(new Date(todoList.createdAt))
-                  }
+                  {getDate(todoList.createdAt)}
                 </em>
               </div>       
             </Card.Text>
