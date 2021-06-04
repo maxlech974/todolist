@@ -13,8 +13,6 @@ const TodoLists = ({ getTodoLists, getTodoListId, todoLists, isLoading, idTodo, 
     getTodoLists();
   }, []);
 
-  console.log('id',idTodo);
-
   return(
     <div className="todo-lists-container">
       {isLoading && <Spinner />}
