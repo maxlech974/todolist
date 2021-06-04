@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react'
+import Spinner from 'src/components/Loaders/spinner'
+import { Link } from 'react-router-dom';
+import { Card, Button } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 
-import { Card, Button } from 'react-bootstrap';
-import Spinner from 'src/components/Loaders/spinner'
 
 import './todolists.scss';
 
@@ -11,7 +12,15 @@ const TodoLists = ({ getTodoLists, todoLists, isLoading }) => {
   useEffect(() => {
     getTodoLists();
   }, []);
-    
+  
+  const handleOpen = () => {
+
+  }
+  const handleDelete = () => {
+
+  }
+
+
   return(
     <div className="todo-lists-container">
       {isLoading && <Spinner />}
@@ -20,7 +29,9 @@ const TodoLists = ({ getTodoLists, todoLists, isLoading }) => {
           <Card.Body className="justify-content-md-center">
             <Card.Title className="title">{todoList.name}</Card.Title>
             <div className="edition">
-              <Button className="access" onClick={()=>(console.log(todoList.id))}>Ouvrir</Button>
+              <Link to={`/todo_list/${todoList.id}`}>
+                <Button className="access" onClick={handleOpen}>Ouvrir</Button>
+              </Link>
               <Button className="modify">Modifier</Button>
               <Button variant="danger">Supprimer</Button>
             </div>
