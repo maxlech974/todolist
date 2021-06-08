@@ -23,6 +23,8 @@ const Tasks = ({ tasksList, getTasks, finish }) => {
     return 0;
   }
 
+  console.log('hello');
+
   const tasksByDate = tasksList.sort(compare);
   const taskActive = [];
   const tasksDone = [];
